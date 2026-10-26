@@ -82,6 +82,8 @@ const Contact = () => {
                             </div>
                         </li>
 
+                        {/* contact */}
+
                         <li>
                             <span className="contact__icon" aria-hidden="true">
                                 <svg viewBox="0 0 24 24">
