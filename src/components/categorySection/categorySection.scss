@@ -1,0 +1,165 @@
+.category-section {
+    display: flex;
+    width: 100%;
+    overflow: hidden;
+    background: #f0f0f0;
+}
+
+.category-card {
+    position: relative;
+    flex: 1;
+    height: 320px;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    text-decoration: none;
+    color: #0d1440;
+    background: #f0f0f0;
+    font-family: "Manrope", "Inter", Arial, sans-serif;
+    animation: cardIn 0.9s ease backwards;
+}
+
+.category-card--dark {
+    color: #fff;
+    background: #020a2b;
+}
+
+/* rasm — o'ng tomonda */
+.category-card__img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: right center;
+    transition: transform 0.8s ease;
+}
+
+.category-card:hover .category-card__img {
+    transform: scale(1.08);
+}
+
+/* chap tomonda matn o'qilishi uchun yumshoq gradient */
+.category-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+    background: linear-gradient(90deg,
+            rgba(240, 240, 240, 0.95) 0%,
+            rgba(240, 240, 240, 0.75) 35%,
+            rgba(240, 240, 240, 0) 65%);
+}
+
+.category-card--dark::before {
+    background: linear-gradient(90deg,
+            rgba(2, 10, 43, 0.97) 0%,
+            rgba(2, 10, 43, 0.8) 35%,
+            rgba(2, 10, 43, 0) 65%);
+}
+
+/* matn — chap tomonda, rasm ustida */
+.category-card__body {
+    position: relative;
+    z-index: 2;
+    padding-left: 10%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    max-width: 65%;
+}
+
+.category-card__label {
+    font-size: clamp(10px, 0.8vw, 12px);
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    animation: textIn 0.8s ease 0.4s backwards;
+}
+
+.category-card__line {
+    display: block;
+    width: 38px;
+    height: 2px;
+    margin: 14px 0 18px;
+    transition: width 0.4s ease;
+    animation: lineIn 0.6s ease 0.6s backwards;
+}
+
+.category-card:hover .category-card__line {
+    width: 70px;
+}
+
+.category-card__title {
+    margin: 0;
+    font-size: clamp(22px, 2.4vw, 36px);
+    font-weight: 500;
+    line-height: 1.15;
+    animation: textIn 0.8s ease 0.6s backwards;
+}
+
+.category-card__arrow {
+    margin-top: 24px;
+    font-size: 32px;
+    line-height: 1;
+    transition: transform 0.3s ease;
+    animation: textIn 0.8s ease 0.9s backwards;
+}
+
+.category-card:hover .category-card__arrow {
+    transform: translateX(12px);
+}
+
+/* animatsiyalar: faqat from bor, shuning uchun animatsiya ishlamasa ham element ko'rinib turadi */
+@keyframes cardIn {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+}
+
+@keyframes textIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+}
+
+@keyframes lineIn {
+    from {
+        width: 0;
+    }
+}
+
+/* planshet */
+@media (max-width: 1100px) {
+    .category-card {
+        height: 300px;
+    }
+}
+
+/* telefon */
+@media (max-width: 768px) {
+    .category-section {
+        flex-direction: column;
+    }
+
+    .category-card {
+        flex: none;
+        height: 260px;
+    }
+
+    .category-card__body {
+        padding-left: 8%;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    .category-card,
+    .category-card * {
+        animation: none !important;
+        transition: none !important;
+    }
+}

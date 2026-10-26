@@ -1,0 +1,55 @@
+@mixin flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 24px;
+}
+
+@mixin flex-between {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+@mixin button {
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 12px 40px;
+    background-color: red;
+    color: #fff;
+    transition: all 0.3s ease;
+    border-radius: 4px;
+}
+
+@mixin title {
+    font-size: 36px;
+    font-weight: 600;
+    line-height: 46px;
+    color: white;
+}
+
+@mixin subtitle {
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 22px;
+    color: #fff;
+}
+
+@mixin mobile {
+    @media (max-width: 576px) {
+        @content;
+    }
+}
+
+@mixin tablet {
+    @media (max-width: 768px) {
+        @content;
+    }
+}
+
+@mixin laptop {
+    @media (max-width: 1024px) {
+        @content;
+    }
+}

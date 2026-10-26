@@ -1,0 +1,423 @@
+$navy: #0a1a3a;
+$navy-deep: #06122b;
+$red: #e63235;
+$red-dark: #c8262a;
+$white: #fff;
+$muted: #5b6585;
+$line: rgba($navy, 0.14);
+
+$font-display: "Orbitron", "Exo 2", sans-serif;
+$ease: cubic-bezier(0.22, 1, 0.36, 1);
+$header-h: 90px;
+
+@mixin up($bp) {
+    @media (min-width: $bp) {
+        @content;
+    }
+}
+
+@keyframes techLine {
+    from {
+        transform: translateY(105%);
+    }
+
+    to {
+        transform: translateY(0);
+    }
+}
+
+@keyframes techFadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(16px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes techZoom {
+    from {
+        transform: scale(1.1);
+    }
+
+    to {
+        transform: scale(1);
+    }
+}
+
+.tech {
+    color: $navy;
+    background: $white;
+    line-height: 1.6;
+
+    *,
+    *::before,
+    *::after {
+        box-sizing: border-box;
+    }
+
+    .reveal {
+        opacity: 0;
+        transform: translateY(24px);
+        transition:
+            opacity 0.9s $ease calc(var(--i, 0) * 0.1s),
+            transform 0.9s $ease calc(var(--i, 0) * 0.1s);
+
+        &.is-in {
+            opacity: 1;
+            transform: none;
+        }
+    }
+
+    &__eyebrow {
+        display: block;
+        margin-bottom: 18px;
+        font-size: 0.78rem;
+        font-weight: 600;
+        letter-spacing: 0.28em;
+        text-transform: uppercase;
+        color: $red;
+    }
+
+    &__hero {
+        position: relative;
+        display: flex;
+        align-items: flex-end;
+        overflow: hidden;
+        isolation: isolate;
+        height: min(80svh, 600px);
+        min-height: 440px;
+        margin-top: $header-h;
+        color: $white;
+        background: $navy;
+    }
+
+    &__hero-img {
+        position: absolute;
+        inset: 0;
+        z-index: -2;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: 68% center;
+        animation: techZoom 2.4s $ease both;
+    }
+
+    &__hero-shade {
+        position: absolute;
+        inset: 0;
+        z-index: -1;
+        background:
+            linear-gradient(90deg, rgba($navy, 0.92) 0%, rgba($navy, 0.5) 50%, rgba($navy, 0.1) 100%),
+            linear-gradient(0deg, rgba($navy-deep, 0.7) 0%, transparent 45%);
+    }
+
+    &__hero-inner {
+        padding-bottom: clamp(40px, 7vw, 88px);
+    }
+
+    &__hero &__eyebrow {
+        animation: techFadeUp 0.8s $ease 0.1s both;
+    }
+
+    &__title {
+        margin: 0;
+        font-family: $font-display;
+        font-size: clamp(2rem, 5.4vw, 4.2rem);
+        font-weight: 400;
+        line-height: 1.15;
+
+        em {
+            font-style: normal;
+            color: $red;
+        }
+    }
+
+    &__mask {
+        display: block;
+        overflow: hidden;
+        padding-bottom: 0.08em;
+
+        >span {
+            display: block;
+            animation: techLine 0.9s $ease both;
+        }
+
+        &:nth-child(1)>span {
+            animation-delay: 0.15s;
+        }
+
+        &:nth-child(2)>span {
+            animation-delay: 0.3s;
+        }
+    }
+
+    &__statement {
+        padding: clamp(72px, 10vw, 150px) 0;
+
+        p {
+            max-width: 22em;
+            margin: 0;
+            font-size: clamp(1.5rem, 3.4vw, 2.8rem);
+            font-weight: 300;
+            line-height: 1.35;
+            letter-spacing: -0.01em;
+
+            span {
+                color: $red;
+            }
+        }
+    }
+
+    &__features {
+        padding-bottom: clamp(56px, 8vw, 110px);
+
+        ul {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            border-top: 1px solid $line;
+        }
+    }
+
+    &__feature {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 10px;
+        padding: 36px 0;
+        border-bottom: 1px solid $line;
+
+        @include up(900px) {
+            grid-template-columns: 80px 1fr 1.2fr;
+            gap: 40px;
+            align-items: baseline;
+            padding: 44px 0;
+        }
+
+        h2 {
+            margin: 0;
+            font-family: $font-display;
+            font-size: clamp(1.15rem, 2vw, 1.6rem);
+            font-weight: 400;
+            line-height: 1.25;
+            transition: color 0.3s ease, transform 0.5s $ease;
+        }
+
+        p {
+            max-width: 52ch;
+            margin: 0;
+            font-weight: 300;
+            color: $muted;
+        }
+
+        &:hover h2 {
+            color: $red;
+            transform: translateX(8px);
+        }
+    }
+
+    &__feature-n {
+        font-family: $font-display;
+        font-size: 0.85rem;
+        letter-spacing: 0.1em;
+        color: $red;
+    }
+
+    &__stats {
+        padding: clamp(56px, 8vw, 100px) 0;
+        color: $white;
+        background: $navy;
+    }
+
+    &__stats-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        margin: 0;
+        padding: 0;
+        list-style: none;
+
+        @include up(900px) {
+            grid-template-columns: repeat(4, 1fr);
+        }
+
+        li {
+            padding: 28px 0;
+
+            @include up(900px) {
+                padding: 8px 32px;
+                border-left: 1px solid rgba($white, 0.16);
+
+                &:first-child {
+                    padding-left: 0;
+                    border-left: 0;
+                }
+            }
+        }
+
+        strong {
+            display: block;
+            font-family: $font-display;
+            font-size: clamp(2.4rem, 5vw, 4rem);
+            font-weight: 400;
+            line-height: 1.1;
+        }
+
+        span {
+            display: block;
+            margin-top: 10px;
+            font-size: 0.78rem;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: rgba($white, 0.6);
+        }
+    }
+
+    &__lab {
+        padding: clamp(64px, 9vw, 130px) 0;
+    }
+
+    &__lab-head {
+        margin-bottom: clamp(32px, 5vw, 64px);
+
+        h2 {
+            margin: 0;
+            font-family: $font-display;
+            font-size: clamp(1.6rem, 3.4vw, 2.6rem);
+            font-weight: 400;
+            line-height: 1.2;
+        }
+    }
+
+    &__lab-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        border-top: 1px solid $line;
+
+        @include up(640px) {
+            grid-template-columns: repeat(2, 1fr);
+            column-gap: 56px;
+        }
+
+        @include up(1100px) {
+            grid-template-columns: repeat(3, 1fr);
+        }
+
+        li {
+            padding: 32px 0;
+            border-bottom: 1px solid $line;
+        }
+
+        small {
+            display: block;
+            margin-bottom: 10px;
+            font-size: 0.72rem;
+            font-weight: 600;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: $red;
+        }
+
+        h3 {
+            margin: 0 0 8px;
+            font-size: 1.15rem;
+            font-weight: 600;
+        }
+
+        p {
+            max-width: 34ch;
+            margin: 0;
+            font-size: 0.95rem;
+            font-weight: 300;
+            color: $muted;
+        }
+    }
+
+    &__cta {
+        padding: clamp(72px, 10vw, 140px) 0;
+        text-align: center;
+        background: #f3f5fa;
+
+        h2 {
+            max-width: 16em;
+            margin: 0 auto;
+            font-family: $font-display;
+            font-size: clamp(1.7rem, 4vw, 3.2rem);
+            font-weight: 400;
+            line-height: 1.2;
+        }
+
+        p {
+            margin: 20px 0 0;
+            font-weight: 300;
+            color: $muted;
+        }
+    }
+
+    &__btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 20px;
+        margin-top: 40px;
+        color: $navy;
+        text-decoration: none;
+
+        b {
+            display: grid;
+            place-items: center;
+            width: 60px;
+            height: 60px;
+            background: $red;
+            transition: background 0.3s ease;
+
+            svg {
+                width: 26px;
+                height: 26px;
+                fill: none;
+                stroke: $white;
+                stroke-width: 1.8;
+                transition: transform 0.35s $ease;
+            }
+        }
+
+        span {
+            font-size: 0.78rem;
+            font-weight: 600;
+            letter-spacing: 0.28em;
+            text-transform: uppercase;
+        }
+
+        &:hover b,
+        &:focus-visible b {
+            background: $red-dark;
+
+            svg {
+                transform: translateX(5px);
+            }
+        }
+
+        &:focus-visible {
+            outline: 2px solid $navy;
+            outline-offset: 6px;
+        }
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    .tech,
+    .tech * {
+        animation: none !important;
+        transition: none !important;
+    }
+
+    .tech .reveal {
+        opacity: 1;
+        transform: none;
+    }
+}

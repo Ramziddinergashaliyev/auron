@@ -1,0 +1,497 @@
+$navy: #0a1a3a;
+$navy-deep: #06122b;
+$red: #e63235;
+$red-dark: #c8262a;
+$sky: #4aa3e8;
+$white: #fff;
+
+$font-display: "Orbitron", "Exo 2", sans-serif;
+$ease: cubic-bezier(0.22, 1, 0.36, 1);
+$header-h: 90px;
+
+@mixin up($bp) {
+    @media (min-width: $bp) {
+        @content;
+    }
+}
+
+@keyframes qLine {
+    from {
+        transform: translateY(105%);
+    }
+
+    to {
+        transform: translateY(0);
+    }
+}
+
+@keyframes qFadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(16px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes qStripe {
+    from {
+        opacity: 0;
+        transform: skewX(-24deg) translateX(80px);
+    }
+
+    to {
+        opacity: 1;
+        transform: skewX(-24deg) translateX(0);
+    }
+}
+
+.quality {
+    color: $navy;
+    background: $white;
+    line-height: 1.6;
+
+    *,
+    *::before,
+    *::after {
+        box-sizing: border-box;
+    }
+
+    .reveal {
+        opacity: 0;
+        transform: translateY(28px);
+        transition:
+            opacity 0.8s $ease calc(var(--i, 0) * 0.1s),
+            transform 0.8s $ease calc(var(--i, 0) * 0.1s);
+
+        &.is-in {
+            opacity: 1;
+            transform: none;
+        }
+    }
+
+    &__eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 14px;
+        margin-bottom: 20px;
+        font-size: 0.78rem;
+        font-weight: 600;
+        letter-spacing: 0.28em;
+        text-transform: uppercase;
+        color: $red;
+
+        &::before {
+            content: "";
+            width: 36px;
+            height: 2px;
+            background: $red;
+        }
+    }
+
+    &__section {
+        padding: clamp(56px, 8vw, 110px) 0;
+
+        &--soft {
+            background: #f3f5fa;
+        }
+    }
+
+    &__head {
+        max-width: 640px;
+        margin-bottom: clamp(32px, 5vw, 56px);
+
+        h2 {
+            margin: 0;
+            font-family: $font-display;
+            font-size: clamp(1.5rem, 3.2vw, 2.4rem);
+            font-weight: 400;
+            line-height: 1.2;
+        }
+    }
+
+    &__hero {
+        position: relative;
+        overflow: hidden;
+        isolation: isolate;
+        margin-top: $header-h;
+        padding: clamp(72px, 10vw, 140px) 0;
+        color: $white;
+        background: linear-gradient(120deg, $navy-deep 0%, $navy 65%, #10285c 100%);
+    }
+
+    &__stripe {
+        position: absolute;
+        z-index: -1;
+        top: -10%;
+        bottom: -10%;
+        transform: skewX(-24deg);
+        pointer-events: none;
+        animation: qStripe 1.2s $ease 0.3s both;
+
+        &--red {
+            right: 22%;
+            width: 36px;
+            background: $red;
+        }
+
+        &--blue {
+            right: 2%;
+            width: 28%;
+            background: linear-gradient(90deg, rgba($sky, 0.35), rgba($sky, 0));
+            animation-delay: 0.45s;
+        }
+    }
+
+    &__hero-inner {
+        position: relative;
+    }
+
+    &__hero &__eyebrow {
+        opacity: 0;
+        animation: qFadeUp 0.8s $ease 0.1s both;
+    }
+
+    &__title {
+        margin: 0;
+        font-family: $font-display;
+        font-size: clamp(1.8rem, 4.6vw, 3.6rem);
+        font-weight: 400;
+        line-height: 1.18;
+
+        em {
+            font-style: normal;
+            color: $red;
+        }
+    }
+
+    &__mask {
+        display: block;
+        overflow: hidden;
+        padding-bottom: 0.06em;
+
+        >span {
+            display: block;
+            animation: qLine 0.9s $ease both;
+        }
+
+        &:nth-child(1)>span {
+            animation-delay: 0.15s;
+        }
+
+        &:nth-child(2)>span {
+            animation-delay: 0.3s;
+        }
+    }
+
+    &__lead {
+        max-width: 52ch;
+        margin: 26px 0 0;
+        font-size: clamp(0.95rem, 1.3vw, 1.15rem);
+        font-weight: 300;
+        color: rgba($white, 0.82);
+        animation: qFadeUp 0.8s $ease 0.6s both;
+    }
+
+    &__stats {
+        position: relative;
+        z-index: 2;
+        margin-top: -1px;
+        padding: clamp(40px, 6vw, 72px) 0;
+        background: $white;
+        border-bottom: 1px solid rgba($navy, 0.08);
+    }
+
+    &__stats-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 32px 20px;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+
+        @include up(900px) {
+            grid-template-columns: repeat(4, 1fr);
+        }
+
+        li {
+            padding-left: 20px;
+            border-left: 2px solid $red;
+        }
+
+        strong {
+            display: block;
+            font-family: $font-display;
+            font-size: clamp(2rem, 4vw, 3.2rem);
+            font-weight: 500;
+            line-height: 1.1;
+            color: $navy;
+        }
+
+        span {
+            display: block;
+            margin-top: 8px;
+            font-size: 0.72rem;
+            font-weight: 500;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: #8a94b5;
+        }
+    }
+
+    &__cards {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 20px;
+
+        @include up(640px) {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        @include up(1100px) {
+            grid-template-columns: repeat(4, 1fr);
+        }
+    }
+
+    &__card {
+        position: relative;
+        overflow: hidden;
+        padding: 32px 28px;
+        background: $white;
+        border: 1px solid #e4e8f3;
+        border-top: 4px solid $red;
+
+        &::after {
+            content: "";
+            position: absolute;
+            inset: auto 0 0 0;
+            height: 3px;
+            background: $navy;
+            transform: scaleX(0);
+            transform-origin: left center;
+            transition: transform 0.5s $ease;
+        }
+
+        h3 {
+            margin: 22px 0 10px;
+            font-family: $font-display;
+            font-size: 1.2rem;
+            font-weight: 500;
+        }
+
+        p {
+            margin: 0;
+            font-size: 0.95rem;
+            font-weight: 300;
+            color: #55608a;
+        }
+
+        &:hover {
+            box-shadow: 0 28px 50px -28px rgba($navy, 0.35);
+            transform: translateY(-6px);
+
+            &::after {
+                transform: scaleX(1);
+            }
+
+            .quality__card-ico {
+                background: $navy;
+            }
+        }
+    }
+
+    &__card.reveal.is-in {
+        transition:
+            opacity 0.8s $ease calc(var(--i, 0) * 0.1s),
+            transform 0.4s $ease,
+            box-shadow 0.4s ease;
+    }
+
+    &__card-ico {
+        display: grid;
+        place-items: center;
+        width: 52px;
+        height: 52px;
+        background: $red;
+        transition: background 0.3s ease;
+
+        svg {
+            width: 24px;
+            height: 24px;
+            fill: none;
+            stroke: $white;
+            stroke-width: 1.8;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+    }
+
+    &__steps {
+        position: relative;
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 36px;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+
+        @include up(1100px) {
+            grid-template-columns: repeat(5, 1fr);
+            gap: 24px;
+
+            &::before {
+                content: "";
+                position: absolute;
+                top: 27px;
+                left: 0;
+                right: 0;
+                height: 2px;
+                background: rgba($navy, 0.12);
+            }
+        }
+    }
+
+    &__step {
+        position: relative;
+
+        h3 {
+            margin: 20px 0 8px;
+            font-size: 1.05rem;
+            font-weight: 600;
+        }
+
+        p {
+            margin: 0;
+            font-size: 0.92rem;
+            font-weight: 300;
+            color: #55608a;
+        }
+    }
+
+    &__step-num {
+        position: relative;
+        display: grid;
+        place-items: center;
+        width: 56px;
+        height: 56px;
+        font-family: $font-display;
+        font-size: 0.95rem;
+        letter-spacing: 0.1em;
+        color: $white;
+        background: $red;
+        transition: background 0.3s ease;
+    }
+
+    &__step:hover &__step-num {
+        background: $navy;
+    }
+
+    &__cta-wrap {
+        padding: clamp(48px, 7vw, 96px) 0;
+    }
+
+    &__cta {
+        position: relative;
+        overflow: hidden;
+        isolation: isolate;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+        gap: 28px;
+        padding: clamp(32px, 5vw, 56px);
+        color: $white;
+        background: linear-gradient(120deg, $navy-deep 0%, $navy 70%, #10285c 100%);
+        border-left: 6px solid $red;
+
+        &::after {
+            content: "";
+            position: absolute;
+            z-index: -1;
+            top: -20%;
+            bottom: -20%;
+            right: 6%;
+            width: 22%;
+            transform: skewX(-24deg);
+            background: linear-gradient(90deg, rgba($sky, 0.25), rgba($sky, 0));
+        }
+
+        h2 {
+            margin: 0 0 10px;
+            font-family: $font-display;
+            font-size: clamp(1.3rem, 2.6vw, 2rem);
+            font-weight: 400;
+            line-height: 1.25;
+        }
+
+        p {
+            margin: 0;
+            font-weight: 300;
+            color: rgba($white, 0.8);
+        }
+    }
+
+    &__btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 20px;
+        color: $white;
+        text-decoration: none;
+
+        b {
+            display: grid;
+            place-items: center;
+            width: 60px;
+            height: 60px;
+            background: $red;
+            transition: background 0.3s ease;
+
+            svg {
+                width: 26px;
+                height: 26px;
+                fill: none;
+                stroke: currentColor;
+                stroke-width: 1.8;
+                transition: transform 0.35s $ease;
+            }
+        }
+
+        span {
+            font-size: 0.78rem;
+            font-weight: 600;
+            letter-spacing: 0.28em;
+            text-transform: uppercase;
+        }
+
+        &:hover b,
+        &:focus-visible b {
+            background: $red-dark;
+
+            svg {
+                transform: translateX(5px);
+            }
+        }
+
+        &:focus-visible {
+            outline: 2px solid $white;
+            outline-offset: 6px;
+        }
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    .quality,
+    .quality * {
+        animation: none !important;
+        transition: none !important;
+    }
+
+    .quality .reveal {
+        opacity: 1;
+        transform: none;
+    }
+}
