@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react"
 import img from "../../assets/images/hero.png"
-import "./Hero.scss"
+import "./hero.scss"
 
 const slides = [
     {

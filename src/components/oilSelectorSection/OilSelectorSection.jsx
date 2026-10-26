@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './OilSelectorSection.scss';
+import './oilSelectorSection.scss';
 
 export default function OilSelectorSection() {
     const [vehicleType, setVehicleType] = useState('car');

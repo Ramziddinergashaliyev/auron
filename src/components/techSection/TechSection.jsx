@@ -1,6 +1,6 @@
 
 import React, { useEffect, useRef, useState } from 'react';
-import './TechSection.scss';
+import './techSection.scss';
 
 function useInView(ref) {
     const [inView, setInView] = useState(false);
