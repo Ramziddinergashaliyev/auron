@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './Sections.scss';
+import './sections.scss';
 
 export default function AuronSections() {
     const [selectedBrand, setSelectedBrand] = useState('');
