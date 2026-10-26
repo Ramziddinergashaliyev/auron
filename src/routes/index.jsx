@@ -5,6 +5,7 @@ import Contact from "../pages/contact/Contact";
 import Quality from "../pages/quality/Quality";
 import Sustainability from "../pages/sustainability/Sustainability";
 import Technology from "../pages/technology/Technology";
+import About from "../pages/about/About";
 
 export const router = createBrowserRouter([
     {
@@ -30,6 +31,10 @@ export const router = createBrowserRouter([
             {
                 path: "/technology",
                 element: <Technology />
+            },
+            {
+                path: "/about",
+                element: <About />
             }
         ]
     }

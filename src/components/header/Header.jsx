@@ -3,11 +3,10 @@ import logo from "../../assets/icons/logo.png";
 import "./header.scss";
 
 const links = [
-    { label: "Products", href: "#products" },
     { label: "Technology", href: "/technology" },
     { label: "Quality", href: "/quality" },
     { label: "Sustainability", href: "/sustainability" },
-    { label: "About", href: "#about" },
+    { label: "About", href: "/about" },
     { label: "Contact", href: "/contact" },
 ];
 
