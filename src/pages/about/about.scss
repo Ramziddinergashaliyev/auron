@@ -1,0 +1,1091 @@
+// @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap");
+
+// $navy: #0b1b4d;
+// $navy-deep: #0a1f6e;
+// $blue: #1f4fd8;
+// $red: #e5252a;
+// $gray-text: #5b6478;
+// $line: #e3e6f0;
+// $radius: 18px;
+// $ease: cubic-bezier(0.2, 0.7, 0.2, 1);
+
+// .about {
+//     font-family: "Montserrat", system-ui, sans-serif;
+//     padding: 90px 0 70px;
+//     background: #fff;
+//     color: $navy;
+//     overflow: hidden;
+
+//     // ---------- umumiy "paydo bo'lish" animatsiyasi ----------
+//     .rv {
+//         opacity: 0;
+//         transform: translateY(22px);
+//         transition:
+//             opacity 0.8s $ease var(--d, 0s),
+//             transform 0.8s $ease var(--d, 0s);
+//     }
+
+//     &--in .rv {
+//         opacity: 1;
+//         transform: none;
+//     }
+
+//     &__grid {
+//         display: grid;
+//         grid-template-columns: 1fr 1fr;
+//         align-items: center;
+//         gap: 80px;
+//     }
+
+//     // ---------- rasm tomoni ----------
+//     &__media {
+//         position: relative;
+//         padding: 0 0 22px 22px;
+//     }
+
+//     // orqadagi to'q ko'k blok
+//     &__frame {
+//         position: absolute;
+//         left: 0;
+//         bottom: 0;
+//         width: 72%;
+//         height: 72%;
+//         border-radius: $radius;
+//         background: linear-gradient(145deg, $navy-deep, #0a2a96);
+//         transform: scale(0);
+//         transform-origin: bottom left;
+//         transition: transform 0.9s $ease 0.45s;
+//     }
+
+//     // nuqtali bezak
+//     &__dots {
+//         position: absolute;
+//         top: -18px;
+//         right: -18px;
+//         width: 130px;
+//         height: 130px;
+//         background-image: radial-gradient(rgba($blue, 0.35) 1.6px, transparent 1.8px);
+//         background-size: 16px 16px;
+//         opacity: 0;
+//         transition: opacity 0.8s ease 1s;
+//     }
+
+//     // asosiy rasm: chapdan o'ngga ochiladi
+//     &__photo {
+//         position: relative;
+//         z-index: 1;
+//         aspect-ratio: 5 / 5.6;
+//         overflow: hidden;
+//         border-radius: $radius;
+//         background: #eef0f7;
+//         box-shadow: 0 24px 50px rgba($navy, 0.18);
+//         clip-path: inset(0 100% 0 0 round #{$radius});
+//         transition: clip-path 1.1s cubic-bezier(0.77, 0, 0.18, 1) 0.15s;
+
+//         img {
+//             display: block;
+//             width: 100%;
+//             height: 100%;
+//             object-fit: cover;
+//             transform: scale(1.25);
+//             transition: transform 1.8s $ease 0.15s;
+//         }
+//     }
+
+//     &--in &__frame {
+//         transform: scale(1);
+//     }
+
+//     &--in &__dots {
+//         opacity: 1;
+//     }
+
+//     &--in &__photo {
+//         clip-path: inset(0 0 0 0 round #{$radius});
+
+//         img {
+//             transform: scale(1);
+//         }
+//     }
+
+//     // suzib yuruvchi belgi
+//     &__badge {
+//         position: absolute;
+//         z-index: 2;
+//         right: -26px;
+//         bottom: 56px;
+//     }
+
+//     &__badge-card {
+//         display: flex;
+//         align-items: center;
+//         gap: 14px;
+//         padding: 16px 20px;
+//         border-radius: 14px;
+//         background: #fff;
+//         box-shadow: 0 18px 40px rgba($navy, 0.2);
+//         animation: about-float 5s ease-in-out 2s infinite;
+
+//         strong {
+//             display: block;
+//             font-size: 14px;
+//             font-weight: 800;
+//             color: $navy;
+//         }
+
+//         span {
+//             font-size: 11.5px;
+//             color: $gray-text;
+//         }
+//     }
+
+//     &__badge-icon {
+//         display: grid;
+//         place-items: center;
+//         flex: none;
+//         width: 44px;
+//         height: 44px;
+//         border-radius: 50%;
+//         background: $red;
+//         color: #fff;
+//     }
+
+//     // ---------- matn tomoni ----------
+//     &__eyebrow {
+//         display: inline-flex;
+//         align-items: center;
+//         gap: 12px;
+//         font-size: 10.5px;
+//         font-weight: 600;
+//         letter-spacing: 0.18em;
+//         text-transform: uppercase;
+//         color: $gray-text;
+
+//         &::before {
+//             content: "";
+//             width: 36px;
+//             height: 2px;
+//             background: $red;
+//         }
+//     }
+
+//     &__title {
+//         margin: 14px 0 0;
+//         font-size: clamp(26px, 3vw, 38px);
+//         line-height: 1.18;
+//         font-weight: 800;
+//         color: $navy;
+//     }
+
+//     &__text {
+//         max-width: 520px;
+//         margin: 20px 0 0;
+//         font-size: 14.5px;
+//         line-height: 1.75;
+//         color: $gray-text;
+//     }
+
+//     &__list {
+//         display: grid;
+//         gap: 14px;
+//         margin: 28px 0 0;
+//         padding: 0;
+//         list-style: none;
+
+//         li {
+//             display: flex;
+//             align-items: center;
+//             gap: 12px;
+//             font-size: 14px;
+//             font-weight: 600;
+//             color: $navy;
+//         }
+//     }
+
+//     &__check {
+//         display: grid;
+//         place-items: center;
+//         flex: none;
+//         width: 24px;
+//         height: 24px;
+//         border-radius: 50%;
+//         background: rgba($blue, 0.1);
+//         color: $blue;
+
+//         path {
+//             stroke-dasharray: 24;
+//             stroke-dashoffset: 24;
+//             transition: stroke-dashoffset 0.6s ease 1.1s;
+//         }
+//     }
+
+//     &--in &__check path {
+//         stroke-dashoffset: 0;
+//     }
+
+//     &__actions {
+//         display: flex;
+//         align-items: center;
+//         gap: 26px;
+//         margin-top: 34px;
+//     }
+
+//     &__btn {
+//         display: inline-flex;
+//         align-items: center;
+//         gap: 10px;
+//         padding: 15px 26px;
+//         border-radius: 999px;
+//         background: $navy;
+//         color: #fff;
+//         font-size: 13px;
+//         font-weight: 700;
+//         text-decoration: none;
+//         transition: background 0.25s ease, gap 0.25s ease, transform 0.25s ease;
+
+//         &:hover {
+//             background: $blue;
+//             gap: 14px;
+//             transform: translateY(-2px);
+//         }
+//     }
+
+//     &__link {
+//         position: relative;
+//         padding-bottom: 3px;
+//         font-size: 13px;
+//         font-weight: 700;
+//         color: $navy;
+//         text-decoration: none;
+
+//         &::after {
+//             content: "";
+//             position: absolute;
+//             left: 0;
+//             bottom: 0;
+//             width: 100%;
+//             height: 2px;
+//             background: $red;
+//             transform: scaleX(0.35);
+//             transform-origin: left;
+//             transition: transform 0.3s ease;
+//         }
+
+//         &:hover::after {
+//             transform: scaleX(1);
+//         }
+//     }
+
+//     // ---------- statistika ----------
+//     &__stats {
+//         position: relative;
+//         display: grid;
+//         grid-template-columns: repeat(4, 1fr);
+//         margin-top: 80px;
+//         padding-top: 36px;
+
+//         // yuqoridagi chiziq chizilib chiqadi
+//         &::before {
+//             content: "";
+//             position: absolute;
+//             top: 0;
+//             left: 0;
+//             width: 100%;
+//             height: 1px;
+//             background: $line;
+//             transform: scaleX(0);
+//             transform-origin: left;
+//             transition: transform 1.2s $ease 0.8s;
+//         }
+//     }
+
+//     &--in &__stats::before {
+//         transform: scaleX(1);
+//     }
+
+//     &__stat {
+//         padding: 0 24px;
+//         border-left: 1px solid $line;
+
+//         &:first-child {
+//             padding-left: 0;
+//             border-left: 0;
+//         }
+
+//         strong {
+//             display: block;
+//             font-size: clamp(30px, 3.4vw, 44px);
+//             font-weight: 800;
+//             line-height: 1;
+//             color: $navy;
+//             font-variant-numeric: tabular-nums;
+//         }
+
+//         span {
+//             display: block;
+//             margin-top: 10px;
+//             font-size: 12.5px;
+//             font-weight: 500;
+//             color: $gray-text;
+//         }
+//     }
+// }
+
+// @keyframes about-float {
+
+//     0%,
+//     100% {
+//         transform: translateY(0);
+//     }
+
+//     50% {
+//         transform: translateY(-8px);
+//     }
+// }
+
+// // ---------- responsive ----------
+// @media (max-width: 960px) {
+//     .about {
+//         padding: 60px 0 50px;
+
+//         &__grid {
+//             grid-template-columns: 1fr;
+//             gap: 56px;
+//         }
+
+//         &__media {
+//             max-width: 520px;
+//         }
+
+//         &__badge {
+//             right: 8px;
+//         }
+
+//         &__stats {
+//             grid-template-columns: repeat(2, 1fr);
+//             row-gap: 32px;
+//             margin-top: 56px;
+//         }
+
+//         &__stat:nth-child(odd) {
+//             padding-left: 0;
+//             border-left: 0;
+//         }
+//     }
+// }
+
+// @media (max-width: 520px) {
+//     .about {
+//         &__actions {
+//             flex-wrap: wrap;
+//             gap: 18px;
+//         }
+
+//         &__badge-card {
+//             padding: 12px 14px;
+//         }
+//     }
+// }
+
+// // ---------- harakatni kamaytirish ----------
+// @media (prefers-reduced-motion: reduce) {
+//     .about {
+//         .rv {
+//             opacity: 1;
+//             transform: none;
+//             transition: none;
+//         }
+
+//         &__frame,
+//         &__photo,
+//         &__photo img,
+//         &__dots,
+//         &__stats::before,
+//         &__check path {
+//             transition: none;
+//         }
+
+//         &__frame {
+//             transform: none;
+//         }
+
+//         &__dots {
+//             opacity: 1;
+//         }
+
+//         &__photo {
+//             clip-path: none;
+
+//             img {
+//                 transform: none;
+//             }
+//         }
+
+//         &__stats::before {
+//             transform: none;
+//         }
+
+//         &__check path {
+//             stroke-dashoffset: 0;
+//         }
+
+//         &__badge-card {
+//             animation: none;
+//         }
+//     }
+// }
+
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap");
+
+$navy: #0b1b4d;
+$navy-deep: #0a1f6e;
+$blue: #1f4fd8;
+$red: #e5252a;
+$gray-text: #5b6478;
+$line: #e3e6f0;
+$radius: 18px;
+$ease: cubic-bezier(0.2, 0.7, 0.2, 1);
+
+.about {
+    font-family: "Montserrat", system-ui, sans-serif;
+    padding: 90px 0 70px;
+    background: #fff;
+    color: $navy;
+    overflow: hidden;
+
+    // ---------- umumiy "paydo bo'lish" animatsiyasi ----------
+    .rv {
+        opacity: 0;
+        transform: translateY(22px);
+        transition:
+            opacity 0.8s $ease var(--d, 0s),
+            transform 0.8s $ease var(--d, 0s);
+    }
+
+    .is-in .rv {
+        opacity: 1;
+        transform: none;
+    }
+
+    &__grid {
+        display: grid;
+        grid-template-columns: 1.3fr 1fr;
+        align-items: center;
+        gap: 64px;
+    }
+
+    // ---------- rasm tomoni ----------
+    &__media {
+        position: relative;
+        padding: 0 0 22px 22px;
+    }
+
+    // orqadagi to'q ko'k blok
+    &__frame {
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 75%;
+        height: 75%;
+        border-radius: $radius;
+        background: linear-gradient(145deg, $navy-deep, #0a2a96);
+        transform: scale(0);
+        transform-origin: bottom left;
+        transition: transform 0.9s $ease 0.45s;
+    }
+
+    // nuqtali bezak
+    &__dots {
+        position: absolute;
+        top: -18px;
+        right: -18px;
+        width: 130px;
+        height: 130px;
+        background-image: radial-gradient(rgba($blue, 0.35) 1.6px, transparent 1.8px);
+        background-size: 16px 16px;
+        opacity: 0;
+        transition: opacity 0.8s ease 1s;
+    }
+
+    // asosiy rasm: chapdan o'ngga ochiladi
+    &__photo {
+        position: relative;
+        z-index: 1;
+        aspect-ratio: 1 / 1.1;
+        overflow: hidden;
+        border-radius: $radius;
+        background: #eef0f7;
+        box-shadow: 0 24px 50px rgba($navy, 0.18);
+        clip-path: inset(0 100% 0 0 round #{$radius});
+        transition: clip-path 1.1s cubic-bezier(0.77, 0, 0.18, 1) 0.15s;
+
+        img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transform: scale(1.25);
+            transition: transform 1.8s $ease 0.15s;
+        }
+    }
+
+    .is-in &__frame {
+        transform: scale(1);
+    }
+
+    .is-in &__dots {
+        opacity: 1;
+    }
+
+    .is-in &__photo {
+        clip-path: inset(0 0 0 0 round #{$radius});
+
+        img {
+            transform: scale(1);
+        }
+    }
+
+    // suzib yuruvchi belgi
+    &__badge {
+        position: absolute;
+        z-index: 2;
+        right: -26px;
+        bottom: 56px;
+    }
+
+    &__badge-card {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        padding: 16px 20px;
+        border-radius: 14px;
+        background: #fff;
+        box-shadow: 0 18px 40px rgba($navy, 0.2);
+        animation: about-float 5s ease-in-out 2s infinite;
+
+        strong {
+            display: block;
+            font-size: 14px;
+            font-weight: 800;
+            color: $navy;
+        }
+
+        span {
+            font-size: 11.5px;
+            color: $gray-text;
+        }
+    }
+
+    &__badge-icon {
+        display: grid;
+        place-items: center;
+        flex: none;
+        width: 44px;
+        height: 44px;
+        border-radius: 50%;
+        background: $red;
+        color: #fff;
+    }
+
+    // ---------- matn tomoni ----------
+    &__eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 12px;
+        font-size: 10.5px;
+        font-weight: 600;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: $gray-text;
+
+        &::before {
+            content: "";
+            width: 36px;
+            height: 2px;
+            background: $red;
+        }
+    }
+
+    &__title {
+        margin: 14px 0 0;
+        font-size: clamp(26px, 3vw, 38px);
+        line-height: 1.18;
+        font-weight: 800;
+        color: $navy;
+    }
+
+    &__text {
+        max-width: 520px;
+        margin: 20px 0 0;
+        font-size: 14.5px;
+        line-height: 1.75;
+        color: $gray-text;
+    }
+
+    &__list {
+        display: grid;
+        gap: 14px;
+        margin: 28px 0 0;
+        padding: 0;
+        list-style: none;
+
+        li {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 14px;
+            font-weight: 600;
+            color: $navy;
+        }
+    }
+
+    &__check {
+        display: grid;
+        place-items: center;
+        flex: none;
+        width: 24px;
+        height: 24px;
+        border-radius: 50%;
+        background: rgba($blue, 0.1);
+        color: $blue;
+
+        path {
+            stroke-dasharray: 24;
+            stroke-dashoffset: 24;
+            transition: stroke-dashoffset 0.6s ease 1.1s;
+        }
+    }
+
+    .is-in &__check path {
+        stroke-dashoffset: 0;
+    }
+
+    &__actions {
+        display: flex;
+        align-items: center;
+        gap: 26px;
+        margin-top: 34px;
+    }
+
+    &__btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        padding: 15px 26px;
+        border-radius: 999px;
+        background: $navy;
+        color: #fff;
+        font-size: 13px;
+        font-weight: 700;
+        text-decoration: none;
+        transition: background 0.25s ease, gap 0.25s ease, transform 0.25s ease;
+
+        &:hover {
+            background: $blue;
+            gap: 14px;
+            transform: translateY(-2px);
+        }
+    }
+
+    &__link {
+        position: relative;
+        padding-bottom: 3px;
+        font-size: 13px;
+        font-weight: 700;
+        color: $navy;
+        text-decoration: none;
+
+        &::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            height: 2px;
+            background: $red;
+            transform: scaleX(0.35);
+            transform-origin: left;
+            transition: transform 0.3s ease;
+        }
+
+        &:hover::after {
+            transform: scaleX(1);
+        }
+    }
+
+    // ---------- statistika ----------
+    &__stats {
+        position: relative;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        margin-top: 80px;
+        padding-top: 36px;
+
+        // yuqoridagi chiziq chizilib chiqadi
+        &::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background: $line;
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 1.2s $ease 0.8s;
+        }
+    }
+
+    &__stats.is-in::before {
+        transform: scaleX(1);
+    }
+
+    &__stat {
+        padding: 0 24px;
+        border-left: 1px solid $line;
+
+        &:first-child {
+            padding-left: 0;
+            border-left: 0;
+        }
+
+        strong {
+            display: block;
+            font-size: clamp(30px, 3.4vw, 44px);
+            font-weight: 800;
+            line-height: 1;
+            color: $navy;
+            font-variant-numeric: tabular-nums;
+        }
+
+        span {
+            display: block;
+            margin-top: 10px;
+            font-size: 12.5px;
+            font-weight: 500;
+            color: $gray-text;
+        }
+    }
+
+    // ---------- bo'lim sarlavhalari ----------
+    &__section {
+        margin-top: 96px;
+    }
+
+    &__head {
+        max-width: 560px;
+        margin-bottom: 36px;
+    }
+
+    &__subtitle {
+        margin: 14px 0 0;
+        font-size: clamp(22px, 2.4vw, 30px);
+        line-height: 1.2;
+        font-weight: 800;
+        color: $navy;
+    }
+
+    // ---------- mission / vision / values ----------
+    &__pillars {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 18px;
+    }
+
+    &__pillar {
+        position: relative;
+        isolation: isolate;
+        height: 100%;
+        overflow: hidden;
+        padding: 32px 28px 36px;
+        border: 1px solid $line;
+        border-radius: $radius;
+        background: #fff;
+        color: $navy;
+        transition: transform 0.3s ease, box-shadow 0.3s ease, color 0.35s ease,
+            border-color 0.35s ease;
+
+        &::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            z-index: -1;
+            background: #050d2e;
+            opacity: 0;
+            transition: opacity 0.35s ease;
+        }
+
+        h4 {
+            margin: 24px 0 10px;
+            font-size: 20px;
+            font-weight: 800;
+        }
+
+        p {
+            margin: 0;
+            font-size: 13.5px;
+            line-height: 1.7;
+            color: $gray-text;
+            transition: color 0.35s ease;
+        }
+
+        &:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 16px 34px rgba($navy, 0.22);
+            border-color: #050d2e;
+            color: #fff;
+
+            &::before {
+                opacity: 1;
+            }
+
+            p {
+                color: rgba(#fff, 0.8);
+            }
+
+            .about__pillar-icon {
+                background: #fff;
+                color: $navy;
+            }
+        }
+    }
+
+    &__pillar-icon {
+        display: grid;
+        place-items: center;
+        width: 54px;
+        height: 54px;
+        border-radius: 14px;
+        background: rgba($blue, 0.1);
+        color: $blue;
+        transition: background 0.35s ease, color 0.35s ease;
+    }
+
+    // ---------- tarix (timeline) ----------
+    &__journey {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 28px;
+        padding-top: 34px;
+    }
+
+    &__step {
+        position: relative;
+
+        // nuqta
+        &::before {
+            content: "";
+            position: absolute;
+            top: -34px;
+            left: 0;
+            width: 14px;
+            height: 14px;
+            border: 3px solid $blue;
+            border-radius: 50%;
+            background: #fff;
+            transform: scale(0);
+            transition: transform 0.45s ease var(--d, 0s);
+        }
+
+        // chiziq
+        &::after {
+            content: "";
+            position: absolute;
+            top: -28px;
+            left: 22px;
+            right: -28px;
+            height: 2px;
+            background: $line;
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.9s $ease calc(var(--d, 0s) + 0.15s);
+        }
+
+        &:last-child::after {
+            display: none;
+        }
+
+        strong {
+            display: block;
+            font-size: 30px;
+            font-weight: 800;
+            line-height: 1;
+            color: $navy;
+        }
+
+        h4 {
+            margin: 14px 0 8px;
+            font-size: 15px;
+            font-weight: 700;
+            color: $navy;
+        }
+
+        p {
+            margin: 0;
+            font-size: 13px;
+            line-height: 1.65;
+            color: $gray-text;
+        }
+    }
+
+    .is-in &__step::before {
+        transform: scale(1);
+    }
+
+    .is-in &__step::after {
+        transform: scaleX(1);
+    }
+}
+
+@keyframes about-float {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-8px);
+    }
+}
+
+// ---------- responsive ----------
+@media (max-width: 960px) {
+    .about {
+        padding: 60px 0 50px;
+
+        &__grid {
+            grid-template-columns: 1fr;
+            gap: 56px;
+        }
+
+        &__media {
+            max-width: none;
+        }
+
+        &__badge {
+            right: 8px;
+        }
+
+        &__stats {
+            grid-template-columns: repeat(2, 1fr);
+            row-gap: 32px;
+            margin-top: 56px;
+        }
+
+        &__stat:nth-child(odd) {
+            padding-left: 0;
+            border-left: 0;
+        }
+    }
+}
+
+@media (max-width: 520px) {
+    .about {
+        &__actions {
+            flex-wrap: wrap;
+            gap: 18px;
+        }
+
+        &__badge-card {
+            padding: 12px 14px;
+        }
+    }
+}
+
+// ---------- harakatni kamaytirish ----------
+@media (prefers-reduced-motion: reduce) {
+    .about {
+        .rv {
+            opacity: 1;
+            transform: none;
+            transition: none;
+        }
+
+        &__frame,
+        &__photo,
+        &__photo img,
+        &__dots,
+        &__stats::before,
+        &__check path {
+            transition: none;
+        }
+
+        &__frame {
+            transform: none;
+        }
+
+        &__dots {
+            opacity: 1;
+        }
+
+        &__photo {
+            clip-path: none;
+
+            img {
+                transform: none;
+            }
+        }
+
+        &__stats::before {
+            transform: none;
+        }
+
+        &__check path {
+            stroke-dashoffset: 0;
+        }
+
+        &__badge-card {
+            animation: none;
+        }
+    }
+}
+
+@media (max-width: 960px) {
+    .about {
+        &__section {
+            margin-top: 64px;
+        }
+
+        &__pillars {
+            grid-template-columns: 1fr;
+        }
+
+        &__journey {
+            grid-template-columns: repeat(2, 1fr);
+            row-gap: 48px;
+        }
+
+        &__step:nth-child(2n)::after {
+            display: none;
+        }
+    }
+}
+
+@media (max-width: 520px) {
+    .about {
+        &__journey {
+            grid-template-columns: 1fr;
+        }
+
+        &__step::after {
+            display: none;
+        }
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .about {
+
+        &__step::before,
+        &__step::after {
+            transition: none;
+            transform: none;
+        }
+
+        &__pillar,
+        &__pillar::before {
+            transition: none;
+        }
+    }
+}
