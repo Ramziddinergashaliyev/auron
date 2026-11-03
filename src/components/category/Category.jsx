@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react"
-import engineImg from "../../assets/images/hero.png"
+import engineImg from "../../assets/images/hero.webp"
 import "./category.scss"
 
 const categories = [

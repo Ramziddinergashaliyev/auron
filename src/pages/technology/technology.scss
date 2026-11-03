@@ -88,11 +88,14 @@ $header-h: 90px;
         align-items: flex-end;
         overflow: hidden;
         isolation: isolate;
-        height: min(80svh, 600px);
-        min-height: 440px;
+        height: 700px;
         margin-top: $header-h;
         color: $white;
         background: $navy;
+
+        @media (max-width: 1550px) {
+            height: 560px;
+        }
     }
 
     &__hero-img {

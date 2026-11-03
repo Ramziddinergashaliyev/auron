@@ -17,6 +17,10 @@
     background: #f0f0f0;
     font-family: "Manrope", "Inter", Arial, sans-serif;
     animation: cardIn 0.9s ease backwards;
+
+    @media (max-width: 1540px) {
+        height: 300px;
+    }
 }
 
 .category-card--dark {

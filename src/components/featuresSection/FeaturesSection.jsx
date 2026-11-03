@@ -53,7 +53,6 @@ const FeaturesSection = () => {
             <img className="features__bg" src={imgBg} alt="" />
             <div className="features__shade" />
 
-            {/* ---------- left ---------- */}
             <div className="features__left">
                 <div className="features__eyebrow">
                     <span className="features__eyebrow-line" />

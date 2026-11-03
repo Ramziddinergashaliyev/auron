@@ -45,12 +45,6 @@ export default function Header() {
                             <path d="M6 9l6 6 6-6" />
                         </svg>
                     </button>
-
-                    <button className="header__burger" aria-label="Menu">
-                        <span />
-                        <span />
-                        <span />
-                    </button>
                 </div>
             </div>
         </header>

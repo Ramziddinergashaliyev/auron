@@ -1,7 +1,7 @@
 import React from 'react'
-import imgOne from "../../assets/images/category1.png"
-import imgTwo from "../../assets/images/category2.png"
-import imgThree from "../../assets/images/category3.png"
+import imgOne from "../../assets/images/category1.webp"
+import imgTwo from "../../assets/images/category2.webp"
+import imgThree from "../../assets/images/category3.webp"
 
 import "./categorySection.scss"
 
