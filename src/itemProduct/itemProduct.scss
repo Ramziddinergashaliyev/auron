@@ -16,7 +16,7 @@ $radius: 14px;
 
     &__head {
         display: flex;
-        align-items: flex-start;
+        align-items: center;
         justify-content: space-between;
         gap: 32px;
         margin-bottom: 28px;
@@ -51,29 +51,73 @@ $radius: 14px;
     }
 
     &__side {
-        max-width: 290px;
+        max-width: 340px;
         padding-top: 14px;
 
         p {
-            margin: 0 0 14px;
+            margin: 0 0 20px;
             font-size: 12.5px;
             line-height: 1.6;
             color: $gray-text;
         }
     }
 
-    &__all {
+    &__download {
         display: inline-flex;
         align-items: center;
-        gap: 6px;
-        font-size: 12px;
-        font-weight: 700;
-        color: $blue;
+        gap: 16px;
+        padding: 8px 30px 8px 8px;
+        color: #fff;
         text-decoration: none;
-        transition: gap 0.25s ease;
+        background: $navy;
+        border-radius: 999px;
+        box-shadow: 0 12px 26px rgba($navy, 0.28);
+        transition: background 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
 
         &:hover {
-            gap: 10px;
+            background: $blue;
+            box-shadow: 0 16px 34px rgba($blue, 0.4);
+            transform: translateY(-3px);
+
+            .products__downloadIcon svg {
+                animation: downloadBounce 0.7s ease infinite;
+            }
+        }
+
+        &:focus-visible {
+            outline: 3px solid rgba($blue, 0.45);
+            outline-offset: 3px;
+        }
+    }
+
+    &__downloadIcon {
+        display: grid;
+        place-items: center;
+        flex-shrink: 0;
+        width: 52px;
+        height: 52px;
+        overflow: hidden;
+        color: #fff;
+        background: $red;
+        border-radius: 50%;
+    }
+
+    &__downloadText {
+        display: flex;
+        flex-direction: column;
+        font-size: 15px;
+        font-weight: 800;
+        line-height: 1.2;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+        white-space: nowrap;
+
+        small {
+            margin-top: 3px;
+            font-size: 10px;
+            font-weight: 600;
+            letter-spacing: 0.18em;
+            color: rgba(#fff, 0.65);
         }
     }
 
@@ -81,6 +125,18 @@ $radius: 14px;
         display: grid;
         grid-template-columns: repeat(4, 1fr);
         gap: 14px;
+    }
+}
+
+@keyframes downloadBounce {
+
+    0%,
+    100% {
+        transform: translateY(-2px);
+    }
+
+    50% {
+        transform: translateY(3px);
     }
 }
 
@@ -237,6 +293,11 @@ $radius: 14px;
             padding-top: 0;
         }
 
+        &__download {
+            display: flex;
+            width: 100%;
+        }
+
         &__grid {
             grid-template-columns: 1fr;
         }
@@ -254,7 +315,11 @@ $radius: 14px;
     .card::before,
     .card__img,
     .card__btn,
-    .products__all {
+    .products__download {
         transition: none;
+    }
+
+    .products__download:hover .products__downloadIcon svg {
+        animation: none;
     }
 }

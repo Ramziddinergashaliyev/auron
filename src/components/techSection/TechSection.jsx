@@ -1,4 +1,120 @@
 
+// import React, { useEffect, useRef, useState } from 'react';
+// import './techSection.scss';
+
+// function useInView(ref) {
+//     const [inView, setInView] = useState(false);
+
+//     useEffect(() => {
+//         const node = ref.current;
+//         if (!node) return;
+
+//         if (!('IntersectionObserver' in window)) {
+//             setInView(true);
+//             return;
+//         }
+
+//         const observer = new IntersectionObserver(
+//             ([entry]) => {
+//                 if (entry.isIntersecting) {
+//                     setInView(true);
+//                     observer.disconnect();
+//                 }
+//             },
+//             { threshold: 0.15 }
+//         );
+
+//         observer.observe(node);
+
+//         return () => observer.disconnect();
+//     }, [ref]);
+
+//     return inView;
+// }
+
+// export default function TechSection() {
+//     const sectionRef = useRef(null);
+//     const inView = useInView(sectionRef);
+
+//     return (
+//         <section
+//             ref={sectionRef}
+//             className={`container auron-tech ${inView ? 'in-view' : ''}`}
+//         >
+//             <div className="auron-tech__inner">
+
+//                 <div className="auron-tech__top">
+//                     <div className="auron-tech__title">
+//                         <div className="auron-tech__eyebrow">
+//                             <span />
+//                             Laboratory rigor
+//                         </div>
+
+//                         <h2>
+//                             Double Synth™
+//                             <span>Molecular Structure</span>
+//                         </h2>
+//                     </div>
+
+//                     <div className="auron-tech__body">
+//                         <div className="auron-tech__body-line" />
+
+//                         <p>
+//                             Standard engine oils shear under mechanical
+//                             boundary stress. Auron’s proprietary Double
+//                             Synth™ technology combines fully synthetic
+//                             esters with Group IV PAO bases, creating a
+//                             stable fluid matrix designed to protect
+//                             engines under demanding conditions.
+//                         </p>
+//                     </div>
+//                 </div>
+
+//                 <div className="auron-tech__formula">
+
+//                     <div className="auron-tech__item">
+//                         <span className="item-number">01</span>
+//                         <div>
+//                             <span className="item-label">
+//                                 Fully synthetic
+//                             </span>
+//                             <h3>Esters</h3>
+//                         </div>
+//                     </div>
+
+//                     <span className="auron-tech__sign">+</span>
+
+//                     <div className="auron-tech__item">
+//                         <span className="item-number">02</span>
+//                         <div>
+//                             <span className="item-label">
+//                                 Group IV
+//                             </span>
+//                             <h3>PAO Base</h3>
+//                         </div>
+//                     </div>
+
+//                     <span className="auron-tech__sign">=</span>
+
+//                     <div className="auron-tech__item auron-tech__item--result">
+//                         <span className="item-number">03</span>
+//                         <div>
+//                             <span className="item-label">
+//                                 Auron technology
+//                             </span>
+//                             <h3>Double Synth™</h3>
+//                         </div>
+//                         <span className="result-arrow">↗</span>
+//                     </div>
+
+//                 </div>
+
+//             </div>
+//         </section>
+//     );
+// }
+
+
 import React, { useEffect, useRef, useState } from 'react';
 import './techSection.scss';
 
@@ -25,7 +141,6 @@ function useInView(ref) {
         );
 
         observer.observe(node);
-
         return () => observer.disconnect();
     }, [ref]);
 
@@ -39,76 +154,54 @@ export default function TechSection() {
     return (
         <section
             ref={sectionRef}
-            className={`container auron-tech ${inView ? 'in-view' : ''}`}
+            className={`auron-tech ${inView ? 'in-view' : ''}`}
         >
-            <div className="auron-tech__inner">
-
+            <div className="container auron-tech__inner">
                 <div className="auron-tech__top">
-                    <div className="auron-tech__title">
-                        <div className="auron-tech__eyebrow">
-                            <span />
-                            Laboratory rigor
-                        </div>
-
-                        <h2>
+                    <div data-reveal style={{ '--d': 0 }}>
+                        <span className="auron-tech__eyebrow">Laboratory rigor</span>
+                        <h2 className="auron-tech__title">
                             Double Synth™
-                            <span>Molecular Structure</span>
+                            <em>Molecular Structure</em>
                         </h2>
                     </div>
 
-                    <div className="auron-tech__body">
-                        <div className="auron-tech__body-line" />
-
-                        <p>
-                            Standard engine oils shear under mechanical
-                            boundary stress. Auron’s proprietary Double
-                            Synth™ technology combines fully synthetic
-                            esters with Group IV PAO bases, creating a
-                            stable fluid matrix designed to protect
-                            engines under demanding conditions.
-                        </p>
-                    </div>
+                    <p className="auron-tech__text" data-reveal style={{ '--d': 1 }}>
+                        Standard engine oils shear under mechanical boundary stress.
+                        Auron’s proprietary Double Synth™ technology combines fully
+                        synthetic esters with Group IV PAO bases, creating a stable
+                        fluid matrix designed to protect engines under demanding
+                        conditions.
+                    </p>
                 </div>
 
                 <div className="auron-tech__formula">
-
-                    <div className="auron-tech__item">
-                        <span className="item-number">01</span>
-                        <div>
-                            <span className="item-label">
-                                Fully synthetic
-                            </span>
-                            <h3>Esters</h3>
-                        </div>
+                    <div className="auron-tech__cell" data-reveal style={{ '--d': 2 }}>
+                        <span className="auron-tech__num">01</span>
+                        <span className="auron-tech__label">Fully synthetic</span>
+                        <h3>Esters</h3>
                     </div>
 
-                    <span className="auron-tech__sign">+</span>
+                    <span className="auron-tech__sign" data-reveal style={{ '--d': 3 }}>+</span>
 
-                    <div className="auron-tech__item">
-                        <span className="item-number">02</span>
-                        <div>
-                            <span className="item-label">
-                                Group IV
-                            </span>
-                            <h3>PAO Base</h3>
-                        </div>
+                    <div className="auron-tech__cell" data-reveal style={{ '--d': 4 }}>
+                        <span className="auron-tech__num">02</span>
+                        <span className="auron-tech__label">Group IV</span>
+                        <h3>PAO Base</h3>
                     </div>
 
-                    <span className="auron-tech__sign">=</span>
+                    <span className="auron-tech__sign" data-reveal style={{ '--d': 5 }}>=</span>
 
-                    <div className="auron-tech__item auron-tech__item--result">
-                        <span className="item-number">03</span>
-                        <div>
-                            <span className="item-label">
-                                Auron technology
-                            </span>
-                            <h3>Double Synth™</h3>
-                        </div>
-                        <span className="result-arrow">↗</span>
+                    <div
+                        className="auron-tech__cell auron-tech__cell--result"
+                        data-reveal
+                        style={{ '--d': 6 }}
+                    >
+                        <span className="auron-tech__num">03</span>
+                        <span className="auron-tech__label">Auron technology</span>
+                        <h3>Double Synth™</h3>
                     </div>
-
                 </div>
-
             </div>
         </section>
     );

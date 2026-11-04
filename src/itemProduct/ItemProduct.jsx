@@ -1,6 +1,7 @@
 import React from 'react'
 import img from "../assets/images/item.png"
 import img1 from "../assets/images/product/dex3.png"
+import pdf from "../assets/pdf/Auron_Catalog_2026_EN.pdf"
 import "./itemProduct.scss"
 
 const products = [
@@ -35,6 +36,13 @@ const ArrowIcon = () => (
     </svg>
 )
 
+const DownloadIcon = () => (
+    <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor"
+        strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+        <path d="M12 4v11m0 0-4-4m4 4 4-4M5 20h14" />
+    </svg>
+)
+
 const ItemProduct = () => {
     return (
         <section className="products">
@@ -49,12 +57,20 @@ const ItemProduct = () => {
                     </div>
 
                     <div className="products__side">
-                        <p>
-                            Advanced lubricants engineered for modern engines
-                            and real-world driving conditions.
-                        </p>
-                        <a href="#all" className="products__all">
-                            View All Products <ArrowIcon />
+                        <a
+                            href={pdf}
+                            className="products__download"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            download
+                        >
+                            <span className="products__downloadIcon">
+                                <DownloadIcon />
+                            </span>
+                            <span className="products__downloadText">
+                                Download Catalog
+                                <small>PDF</small>
+                            </span>
                         </a>
                     </div>
                 </div>
